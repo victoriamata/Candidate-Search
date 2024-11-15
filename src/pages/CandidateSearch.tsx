@@ -12,7 +12,7 @@ const CandidateSearch = () => {
       const candidates = await searchGithub();
       setCandidateList(candidates);
       if (candidates.length > 0) {
-        await loadCandidateDetails(candidates[0].login); 
+        await loadCandidateDetails(candidates[0].user); 
       }
     };
     fetchCandidates();
@@ -57,11 +57,11 @@ const loadNextCandidate = async () => {
         <div>
           
           <img src={currentCandidate.avatar || 'No avatar to display'}/>
-          <h2>{currentCandidate.name || 'No Name'}</h2> 
+          <h2>{currentCandidate.name || 'No Name provided'}</h2> 
           <p>Username: {currentCandidate.user}</p>
-          <p>Location: {currentCandidate.location || 'Not provided'}</p> 
-          <p>Email: {currentCandidate.email || 'Not provided'}</p> 
-          <p>Company: {currentCandidate.company || 'Not provided'}</p> 
+          <p>Location: {currentCandidate.location || 'No location provided'}</p> 
+          <p>Email: {currentCandidate.email || 'No email provided'}</p> 
+          <p>Company: {currentCandidate.company || 'No company provided'}</p> 
           <a href={currentCandidate.url || ''} target="_blank" rel="noopener noreferrer">
             GitHub URL
           </a>
